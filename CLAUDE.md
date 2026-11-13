@@ -73,6 +73,8 @@ Not for small tweaks or fixes. Details: playbook `working-with-the-user.md`.
 - Ambiguous → make a sensible choice and say so. Ask first for anything hard to undo.
 - Report honestly what was and wasn't tested.
 - End with status: what changed, committed/pushed, where to see it.
+- **Every deploy ends with a link:** the full, clickable address of each stage
+  that changed (pushed to Dev or promoted), plus one line on what to look at.
 
 ## Quality checklist (before pushing)
 
