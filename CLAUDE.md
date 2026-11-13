@@ -86,7 +86,13 @@ Not for small tweaks or fixes. Details: playbook `working-with-the-user.md`.
 ## Notes
 
 - Browser storage is shared by all stages (one web address): key it per stage.
-- <App-specific notes, setup facts (e.g. Firebase project, Firestore location), quirks.>
+- Firebase project `playbook-trial-app`,
+  web app "Playbook Trial (web)"; Firestore `(default)` in `eur3` (Europe, can't
+  move), Standard, free tier, delete protection on. Google sign-in on;
+  authorised domains include `thedodgykiwi.github.io` and `localhost`.
+- `firestore.rules` currently denies everything (no data stored yet). The first
+  feature that saves data adds owner-only rules plus tests, then deploys them
+  with `npx -y firebase-tools@latest deploy --only firestore:rules` before the app.
 
 ## Sign-in and cloud data (optional, off until set up)
 
