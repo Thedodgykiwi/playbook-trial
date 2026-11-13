@@ -1,0 +1,86 @@
+* { box-sizing: border-box; }
+[hidden] { display: none !important; } /* never let layout rules un-hide things */
+body {
+  margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 1.5rem;
+  font-family: system-ui, sans-serif; background: #f4f5f7; color: #1d1f23;
+}
+button {
+  font: inherit; padding: .5rem 1rem; border: 0; border-radius: 8px;
+  background: #3b5bdb; color: #fff; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+}
+button:hover { background: #2f4ac0; }
+button:focus-visible, input:focus-visible { outline: 2px solid #3b5bdb; outline-offset: 2px; }
+/* Icons (Phosphor duotone, see icons.js): sized to the text around them */
+.ic { width: 1.2em; height: 1.2em; flex: none; }
+
+/* Stage banner: coloured strip across the top on every stage except Production */
+#stage-banner {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 10; padding: .4rem 1rem;
+  display: flex; justify-content: center; align-items: center;
+  font-weight: 600; color: #fff; letter-spacing: .05em; font-size: .85rem;
+}
+body.has-banner { padding-top: 3rem; }
+.stage-dev     { background: #7048e8; }
+.stage-alpha   { background: #c2255c; }
+.stage-staging { background: #c25e00; }   /* darker than the icon orange so white text stays readable */
+.stage-local   { background: #495057; }
+/* Subtle link to the pipeline page at the banner's right end */
+#pipeline-link {
+  position: absolute; right: .6rem; top: 50%; transform: translateY(-50%);
+  color: #fff; text-decoration: none; font-size: .75rem; letter-spacing: .02em; font-weight: 600;
+  padding: .15rem .5rem; border-radius: 999px; background: rgba(0, 0, 0, .18);
+}
+#pipeline-link::after { content: " ↗"; }
+#pipeline-link:hover { background: rgba(0, 0, 0, .3); text-decoration: underline; }
+#pipeline-link:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* Empty placeholder where the app will go */
+.placeholder {
+  width: min(420px, 100%); min-height: 240px;
+  border: 2px dashed #ced4da; border-radius: 12px; background: #fff;
+}
+
+/* Google sign-in (account.js): top-right corner of the page, shown only once Firebase is set up */
+.account { position: fixed; top: 1rem; right: 1rem; z-index: 5; }
+body.has-banner .account { top: 3rem; }
+.sign-in {
+  padding: .35rem .7rem; font-size: .85rem; font-weight: 600;
+  background: #fff; color: #1f1f1f; border: 1px solid #c7cad1;
+}
+.sign-in:hover { background: #f6f7f9; }
+.sign-in .ic { color: #4285f4; }
+.avatar-btn { position: relative; padding: 0; width: 34px; height: 34px; border-radius: 50%; background: none; }
+.avatar-btn:hover { background: none; }
+.avatar {
+  width: 34px; height: 34px; border-radius: 50%; background: #7048e8; color: #fff;
+  font-weight: 700; font-size: .9rem; display: grid; place-items: center;
+}
+.sync-dot {
+  position: absolute; right: -1px; bottom: -1px; width: 12px; height: 12px;
+  border-radius: 50%; border: 2px solid #fff; background: var(--none);
+}
+.sync-dot.synced { background: #2f9e44; }
+.sync-dot.saving { background: #3b5bdb; }
+.sync-dot.offline { background: #f08c00; }
+.sync-dot.error { background: #e03131; }
+.account-menu {
+  position: absolute; right: 0; top: calc(100% + .4rem); z-index: 5; width: min(260px, 80vw);
+  background: #fff; border: 1px solid #e4e6ec; border-radius: 10px; padding: .75rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15); display: grid; gap: .5rem; font-size: .85rem;
+}
+.account-menu p { margin: 0; }
+.who { display: grid; gap: .1rem; }
+.who span { color: #6b7079; font-size: .8rem; overflow-wrap: anywhere; }
+.sync-status { display: flex; align-items: center; gap: .35rem; font-weight: 600; }
+.sync-status.synced { color: #2b8a3e; }
+.sync-status.saving { color: #3b5bdb; }
+.sync-status.offline { color: #a35200; }
+.sync-status.error { color: #c92a2a; }
+.plain-btn { justify-content: flex-start; background: none; color: #333; padding: .4rem .5rem; }
+.plain-btn:hover { background: #f1f3f5; }
+.toast {
+  position: fixed; left: 50%; bottom: 1rem; transform: translateX(-50%); z-index: 10;
+  width: max-content; max-width: min(420px, 92vw); padding: .65rem .9rem; border-radius: 10px;
+  background: #1d1f23; color: #fff; font-size: .9rem; box-shadow: 0 8px 24px rgba(0,0,0,.2);
+}
