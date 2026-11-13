@@ -8,6 +8,9 @@ A practice app for testing the new-app setup.
 promoting it to Alpha, Staging or Production unless the user asks.
 Plain HTML/CSS/JS, no build step, hosted on GitHub Pages.
 
+**Choice card, no issues here:** for any change to the starter's pieces, show the
+AskUserQuestion card with "Mock-up first" / "Build it now" (playbook `issues.md`).
+
 ## Playbook
 
 General processes, design patterns and gotchas live in
