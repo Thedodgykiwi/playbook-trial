@@ -1,6 +1,11 @@
 # Playbook Trial
 
 A practice app for testing the new-app setup.
+
+**Purpose: a test bench for the playbook starter.** New starter features
+(menu, theme, sign-in…) are tried here on Dev first, then go into
+`app-playbook/templates/starter/`. It stays on **Dev only**: don't suggest
+promoting it to Alpha, Staging or Production unless the user asks.
 Plain HTML/CSS/JS, no build step, hosted on GitHub Pages.
 
 ## Playbook
